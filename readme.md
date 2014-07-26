@@ -1,25 +1,24 @@
-## Laravel PHP Framework
+dwa15.com P4 Cesar Zavala Mesta
+Live URL
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Open Shift http://final-zavala.rhcloud.com/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+Description
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+(This started as the P4 repository but then moved to this repository)
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Merge/watermark pictures with the Harvard Summer School logo. The idea is that you take a picture of you and another Summer School friend and this app will have a series of 'frames', which are pictures with transparency, and will merge those pictures.
 
-## Official Documentation
+It will merge them without asking for login. If you register
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+you can save your pictures in the server
+you can upload your own frames
+Project according to the specs of Project 4.
 
-### Contributing To Laravel
+Details for teaching team
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+No login required.
 
-### License
+Outside code
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Bootstrap: http://getbootstrap.com/
