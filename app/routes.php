@@ -65,7 +65,7 @@ Route::post('/signup', array('before' => 'csrf', function() {
 	
 }));
 
-
+/*
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -110,6 +110,25 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+*/
 
+Route::get('/testpic', function(){
+	$dest = imagecreatefrompng('../test/Frame.png');
+	$src = imagecreatefrompng('../test/NiagaraFalls.png');
 
+	$size = getimagesize('../test/NiagaraFalls.png');
 
+	
+	//imagealphablending($dest, false);
+	//imagesavealpha($dest, true);
+
+	//imagecopymerge($dest, $src, 0, 0, 0, 0, 1200, 800, 100); //have to play with these numbers for it to work for you, etc.
+
+	imagecopyresized($dest, $src, 0, 0, 0, 0, 1200, 800, $size[0], $size[1]);
+
+	header('Content-Type: image/png');
+	imagepng($dest);
+
+	imagedestroy($dest);
+	imagedestroy($src);
+});
