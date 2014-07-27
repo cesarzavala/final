@@ -113,7 +113,7 @@ Route::get('/debug', function() {
 */
 
 Route::get('/testpic', function(){
-	$dest = imagecreatefrompng('../test/Frame.png');
+	$dest = imagecreatefrompng('../test/FrameTopBottom.png');
 	$src = imagecreatefrompng('../test/NiagaraFalls.png');
 
 	$size = getimagesize('../test/NiagaraFalls.png');
@@ -124,7 +124,9 @@ Route::get('/testpic', function(){
 
 	//imagecopymerge($dest, $src, 0, 0, 0, 0, 1200, 800, 100); //have to play with these numbers for it to work for you, etc.
 
-	imagecopyresized($dest, $src, 0, 0, 0, 0, 1200, 800, $size[0], $size[1]);
+	//imagecopyresized($dest, $src, 0, 0, 0, 0, 1200, 800, $size[0], $size[1]);
+	imagecopyresized($dest, $src, 10, 110, 0, 0, 1200, 800, $size[0], $size[1]);
+
 
 	header('Content-Type: image/png');
 	imagepng($dest);
