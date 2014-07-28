@@ -61,7 +61,7 @@ Route::post('/signup', array('before' => 'csrf', function() {
 	# Log in
 	Auth::login($user);
 	
-	return Redirect::to('/debug')->with('flash_message', 'Welcome to Foobooks!');
+	return Redirect::to('/')->with('flash_message', 'Welcome to Foobooks!');
 	
 }));
 
@@ -133,4 +133,61 @@ Route::get('/testpic', function(){
 
 	imagedestroy($dest);
 	imagedestroy($src);
+});
+
+
+Route::get('/templates/add/', function() {
+	return View::make('addtemplate');
+});
+
+Route::post('/templates/add/', function() {
+
+	# Instantiate the book model
+	$template = new Template();
+
+	$destinationPath = "../templates/";
+
+	$template->user_id = 1; //defaults to administrator
+	$template->name = Input::get('name');
+	$template->public = Input::get('public');
+	$template->dst_x = Input::get('dst_x');
+	$template->dst_y = Input::get('dst_y');
+	$template->dst_w = Input::get('dst_w');
+	$template->dst_h = Input::get('dst_h');
+	$filename = Input::file('image')->getClientOriginalName();
+	$filename = date('YmdHis').$filename;
+	$template->image = Input::file('image')->move($destinationPath,$filename);
+
+	$template->save();
+	return "Added a new template";
+});
+
+Route::get('/pictures/add/', function() {
+	return View::make('addpicture');
+});
+
+Route::post('/pictures/add/', function() {
+
+	# Instantiate the book model
+	$picture = new Picture();
+
+	$destinationPath = "../pictures/";
+
+	$picture->user_id = 1; //defaults to administrator
+	$picture->name = Input::get('name');
+	$picture->src_x = Input::get('src_x');
+	$picture->src_y = Input::get('src_y');
+	$picture->src_w = Input::get('src_w');
+	$picture->src_h = Input::get('src_h');
+	$filename = Input::file('image')->getClientOriginalName();
+	$filename = date('YmdHis').$filename;
+	$picture->image = Input::file('image')->move($destinationPath,$filename);
+
+	$picture->save();
+	//return "Added a new picture";
+
+	$template = Template::where('template_id','=',5)->get()->first();
+	$mingle = new Mingle($template, $picture);
+	$mingle->do_mingle($filename);
+
 });
