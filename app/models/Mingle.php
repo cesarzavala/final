@@ -52,13 +52,20 @@ class Mingle extends Eloquent {
 
 	public function do_mingle($filename) {
 
-			$dest = imagecreatefrompng($this->template->image);
+			$this_template = $this->template->first();
+			$image= $this_template->image;
+			$dst_x = $this_template->dst_x;
+			$dst_y = $this_template->dst_y;
+			$dst_w = $this_template->dst_w;
+			$dst_h = $this_template->dst_h;
+
+			$dest = imagecreatefrompng($image);
 			$src = $this->imagecreatefromfile($this->picture->image);
 
 			$size = getimagesize($this->picture->image);
 
 	
-			imagecopyresized($dest, $src, 10, 110, 0, 0, 1200, 800, $size[0], $size[1]);
+			imagecopyresized($dest, $src, $dst_x, $dst_y, 0, 0, $dst_w, $dst_h, $size[0], $size[1]);
 
 			$destinationPath = "../mingles/";
 

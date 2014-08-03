@@ -1,5 +1,13 @@
 @extends('_master')
 
+@Section('head')
+	<script>
+		$(document).ready(function () {
+	  		$("select").imagepicker();	
+		})
+	</script>
+@stop
+
 @section('title')
 	Add a picture
 @stop
@@ -17,7 +25,7 @@
 		{{ Form::submit('Save Picture') }}
 
 	<div class="container-fluid">
-		<select class="image-picker show-html">
+		<select name="template" class="image-picker show-html">
 <?php
 	$templates = Template::all();
 	foreach($templates as $template) {
@@ -29,6 +37,5 @@
 	</div>
 	{{ Form::close() }}
 @stop
-	<script>
-		$("select").imagepicker();
-	</script>
+
+

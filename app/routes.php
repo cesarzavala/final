@@ -174,7 +174,13 @@ Route::post('/pictures/add/', function() {
 
 	$destinationPath = "../pictures/";
 
-	$picture->user_id = 1; //defaults to administrator
+	$user = User::all()->first();
+	$user_id = $user->user_id;
+
+
+	$template = Input::get('template');
+
+	$picture->user_id = $user_id; //defaults to administrator
 	$picture->name = Input::get('name');
 	if (!isset($picture->name)) {
 		$picture->name = "testing";
@@ -195,6 +201,10 @@ Route::post('/pictures/add/', function() {
 	If (!isset($picture->src_h)) {
 		$picture->src_h = 0;
 	}
+	$template_id = Input::get('template');
+	If (!isset($template_id)) {
+		$template_id = 1;
+	}
 
 	$filename = Input::file('image')->getClientOriginalName();
 	$filename = date('YmdHis').$filename;
@@ -203,8 +213,11 @@ Route::post('/pictures/add/', function() {
 	$picture->save();
 	//return "Added a new picture";
 
-	$template = Template::where('template_id','=',5)->get()->first();
+	$template = Template::where('template_id','=',$template_id)->get();
+
+
 	$mingle = new Mingle($template, $picture);
+
 	$mingle->do_mingle($filename);
 
 });
