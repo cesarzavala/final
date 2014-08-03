@@ -1,0 +1,68 @@
+body {
+	background-image: url('images/brick.png') ;
+}
+
+
+.logo {
+   position:fixed;
+   top:5px;
+   left:0;
+   width:100%;
+   height:50px;
+   background-image: url('images/Mix-a-Pix.png') ;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+.container {
+	/* top: 60px; */
+	position: relative;
+	background-image: url('images/brick.png');
+}
+
+.title input[type="file"] {
+	display: inline;
+	text-align: center;
+}
+
+.navbar-brand img {
+	height: 50px;
+	width: 200px;
+}
+
+.leftie {
+	height: 200px;
+	padding: 10px;
+}
+
+.pic {
+	margin: 5%;
+	border: 2px solid black;
+	background-color: white;
+	height: 75%;
+}
+
+.rightie {
+	height: 200px;
+	padding: 10px;
+}
+
+.title {
+	color: white;
+	text-align: center;
+}
+
+.buttonie {
+	height: 50px;
+	text-align: center;
+}
+
+.image_picker_selector {
+	position: relative;
+	top: 100px;
+}
+
+.thumbnail {
+	width: 100px;
+	height: 85px;
+}

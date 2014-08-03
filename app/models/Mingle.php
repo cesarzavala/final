@@ -7,17 +7,17 @@ class Mingle extends Eloquent {
 
 	#Relationship with user
 	public function user(){
-		return $this->belongsTo('User','id');
+		return $this->belongsTo('User','user_id','user_id');
 	}
 	
 	#Relationship with picture
 	public function picture() {
-		return $this->belongsTo('Picture','id');
+		return $this->belongsTo('Picture','picture_id','picture_id');
 	}
 
 	#Relationship with template
 	public function template() {
-		return $this->belongsTo('Template','id');
+		return $this->belongsTo('Template','template_id','template_id');
 	}
 
 	public function __construct($thetemplate, $thepicture) {

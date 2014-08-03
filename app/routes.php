@@ -65,7 +65,7 @@ Route::post('/signup', array('before' => 'csrf', function() {
 	
 }));
 
-/*
+
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -110,7 +110,7 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
-*/
+
 
 Route::get('/testpic', function(){
 	$dest = imagecreatefrompng('../test/FrameTopBottom.png');
@@ -157,6 +157,7 @@ Route::post('/templates/add/', function() {
 	$filename = Input::file('image')->getClientOriginalName();
 	$filename = date('YmdHis').$filename;
 	$template->image = Input::file('image')->move($destinationPath,$filename);
+	$template->path = $filename;
 
 	$template->save();
 	return "Added a new template";
@@ -175,10 +176,26 @@ Route::post('/pictures/add/', function() {
 
 	$picture->user_id = 1; //defaults to administrator
 	$picture->name = Input::get('name');
+	if (!isset($picture->name)) {
+		$picture->name = "testing";
+	}
 	$picture->src_x = Input::get('src_x');
+	If (!isset($picture->src_x)) {
+		$picture->src_x = 0;
+	}
 	$picture->src_y = Input::get('src_y');
+	If (!isset($picture->src_y)) {
+		$picture->src_y = 0;
+	}	
 	$picture->src_w = Input::get('src_w');
+	If (!isset($picture->src_w)) {
+		$picture->src_w = 0;
+	}	
 	$picture->src_h = Input::get('src_h');
+	If (!isset($picture->src_h)) {
+		$picture->src_h = 0;
+	}
+
 	$filename = Input::file('image')->getClientOriginalName();
 	$filename = date('YmdHis').$filename;
 	$picture->image = Input::file('image')->move($destinationPath,$filename);
@@ -190,4 +207,8 @@ Route::post('/pictures/add/', function() {
 	$mingle = new Mingle($template, $picture);
 	$mingle->do_mingle($filename);
 
+});
+
+Route::get('/ui/', function() {
+	return View::make('ui');
 });

@@ -81,11 +81,27 @@ class CreateTables extends Migration {
 	 */
 	public function down()
 	{
+	
+		Schema::table('mingles', function($table) {
+			$table->dropForeign('mingles_picture_id_foreign'); # table_fields_foreign
+			$table->dropForeign('mingles_template_id_foreign'); # table_fields_foreign
+			$table->dropForeign('mingles_user_id_foreign'); # table_fields_foreign
+		});
+
+		Schema::table('pictures', function($table) {
+			$table->dropForeign('pictures_user_id_foreign'); # table_fields_foreign
+		});
+
+		Schema::table('templates', function($table) {
+			$table->dropForeign('templates_user_id_foreign'); # table_fields_foreign
+		});
+
 		//
-		Schema::drop('users');
+		Schema::drop('mingles');
 		Schema::drop('templates');
 		Schema::drop('pictures');
-		Schema::drop('mingles');
+		Schema::drop('users');
+	
 	}
 
 }
