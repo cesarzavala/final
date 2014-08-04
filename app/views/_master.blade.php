@@ -16,19 +16,15 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">Mix-a-Pix</a>
-	    </div>
-	</nav>
+
+<div class="panel panel-default logo">
+  <div class="panel-body">
+  	<div class="row">
+	  		<h2>Mix-a-Pix</h2>
+	  		<h4>Choose your picture, select a frame and Mix-a-Pix!</h4>
+	</div>
+  </div>
+</div>
 
 	@if(Session::get('flash_message'))
 		<div class='flash-message'>{{ Session::get('flash_message') }}</div>
