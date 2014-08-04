@@ -31,7 +31,7 @@
 			</div>
 		</div>
 		<div class="row mybutton">
-			<button type="button" class="btn btn-primary">Mix-a-Pix</button>
+			<button type="submit" class="btn btn-primary">Mix-a-Pix</button>
 		</div>
 	</div>
 
