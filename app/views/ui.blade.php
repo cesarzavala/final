@@ -35,30 +35,28 @@
 		</div>
 	</div>
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="panel panel-primary">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">Frames</h3>
-			  </div>
-			  <div class="panel-body">
+			<div class="col-xs-12">
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Frames</h3>
+				  </div>
+				  <div class="panel-body">
 
-				<select name="template" class="image-picker show-labels">
-					<?php
-						$templates = Template::all();
-						foreach($templates as $template) {
-							echo '<option data-img-label="<h3>'.$template->name.'</h3>" data-img-src="'.$template->path.'" value="'.$template->template_id.'">'.$template->name.'</option>';
-						}
-					?>
-				</select>
-
-
-			  </div>
+					<select name="template" class="image-picker show-labels">
+						<?php
+							$templates = Template::all();
+							foreach($templates as $template) {
+								echo '<option data-img-label="<h3>'.$template->name.'</h3>" data-img-src="'.$template->path.'" value="'.$template->template_id.'">'.$template->name.'</option>';
+							}
+						?>
+					</select>
+				  </div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	{{ Form::submit('Mix-a-Pix') }}
 
 	{{ Form::close() }}
 @stop
