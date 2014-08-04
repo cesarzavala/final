@@ -6,6 +6,7 @@
 .image_picker_selector {
 	padding: 20px;
 	margin: 20px;	
+	text-align: center;
 }
 
 
@@ -32,3 +33,4 @@
 .logo .panel-body h4 {
 	color: silver;
 }
+

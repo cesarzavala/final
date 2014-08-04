@@ -58,6 +58,13 @@
 		</div>
 	</div>
 
+
+	<div class="container-fluid">
+		<div class="row mybutton">
+			<button type="submit" class="btn btn-primary">Mix-a-Pix</button>
+		</div>
+	</div>	
+
 	{{ Form::close() }}
 @stop
 

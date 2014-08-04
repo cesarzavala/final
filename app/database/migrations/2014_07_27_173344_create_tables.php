@@ -14,7 +14,7 @@ class CreateTables extends Migration {
 	{
 		//
 		Schema::create('users',function($table){
-			$table->increments('user_id');
+			$table->increments('id');
 			$table->string('email')->unique();
 			$table->boolean('remember_token');
 			$table->string('password');
@@ -35,7 +35,7 @@ class CreateTables extends Migration {
 			$table->timestamps();
 
 			#FK
-			$table->foreign('user_id')->references('user_id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users');
 
 		});
 
@@ -53,7 +53,7 @@ class CreateTables extends Migration {
 			$table->timestamps();
 
 			#FK
-			$table->foreign('user_id')->references('user_id')->on('users');
+			$table->foreign('user_id')->references('id')->on('users');
 		});
 
 
@@ -67,9 +67,9 @@ class CreateTables extends Migration {
 			$table->timestamps();
 
 			#FK
-			$table->foreign('user_id')->references('user_id')->on('users');
-			$table->foreign('template_id')->references('user_id')->on('templates');
-			$table->foreign('picture_id')->references('user_id')->on('pictures');
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->foreign('template_id')->references('template_id')->on('templates');
+			$table->foreign('picture_id')->references('picture_id')->on('pictures');
 
 		});
 	}
