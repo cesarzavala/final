@@ -20,13 +20,15 @@ class Mingle extends Eloquent {
 		return $this->belongsTo('Template','template_id','template_id');
 	}
 
-	public function __construct($thetemplate, $thepicture) {
-		$this->template = $thetemplate;
-		$this->picture = $thepicture;
+	public static function withTemplateAndPicture($thetemplate, $thepicture) {
+		$instance = new self();
+		$instance->template = $thetemplate;
+		$instance->picture = $thepicture;
+		return $instance;
 	}
 
 //http://stackoverflow.com/questions/10233577/create-image-from-url-any-file-type
-	private function imagecreatefromfile( $filename ) {
+	public static function imagecreatefromfile( $filename ) {
     if (!file_exists($filename)) {
         throw new InvalidArgumentException('File "'.$filename.'" not found.');
     }
@@ -63,21 +65,35 @@ class Mingle extends Eloquent {
 			$src = $this->imagecreatefromfile($this->picture->image);
 
 			$size = getimagesize($this->picture->image);
-
 	
 			imagecopyresized($dest, $src, $dst_x, $dst_y, 0, 0, $dst_w, $dst_h, $size[0], $size[1]);
 
-			$destinationPath = "../mingles/";
 
-			//print_r($destinationPath.$filename);
-			//dd();
+			$filename = date('YmdHis') + rand(0,getrandmax());
+			$destinationPath = "../mingles/".$filename.".png";
+			imagepng($dest,$destinationPath);
 
+			if(Auth::check()){
+				$this->user_id = Auth::user()->id;
+			} else {
+				$this->user_id = 1;
+			};
+
+			$this->picture_id = $this->picture->id;
+			$this->template_id = $this_template->template_id;
+			$this->path = $destinationPath;
+			$this->image = $this->path;
+
+			$this->save();
+			
 			header('Content-Type: image/png');
 			//imagepng($dest, $destinationPath.$filename);
 
 			imagepng($dest);
 			imagedestroy($dest);
 			imagedestroy($src);
+
+
 
 	}
 

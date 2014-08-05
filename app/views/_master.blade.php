@@ -20,16 +20,16 @@
 <div class="panel panel-default logo">
   <div class="panel-body">
   	<div class="row">
-	  		<h2>Mix-a-Pix</h2>
+	  		<h2><a href="/">Mix-a-Pix</a></h2>
 	  		<h4>Choose your picture, select a frame and Mix-a-Pix!</h4>
 	  		<div class="login">
 	  			@if(Auth::check())
-        			Logged in as <strong>{{{Auth::user()->email}}}</strong>
+        			<span class="label label-default">Logged in as <strong>{{{Auth::user()->email}}}</strong></span> - 
+        			{{link_to('mingle','Saved pictures')}} - 
 					{{link_to('logout', 'Log Out')}}
       			@else
         			{{link_to('login', 'Log In')}} - 
-        			{{link_to('signup', 'Sign Up')}}
-
+        			{{link_to('signup', 'Sign Up to save your pictures')}}
       			@endif
 	  		</div>
 	</div>

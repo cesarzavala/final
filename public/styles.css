@@ -34,3 +34,12 @@
 	color: silver;
 }
 
+
+.minglesset img {
+	width: 200px;
+	height: 150px;
+	border: 1px solid black;
+	padding: 5px;
+	margin: 10px;
+}
+

@@ -11,16 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
+Route::get('/', 'IndexController@getIndex');
 
-Route::get('/get-environment',function() {
-
-    echo "Environment: ".App::environment();
-
-});
 
 # Note: the beforeFilter for 'guest' on getSignup and getLogin is handled in the Controller
 Route::get('/signup', 'UserController@getSignup'); 
@@ -29,6 +21,9 @@ Route::post('/signup', ['before' => 'csrf', 'uses' => 'UserController@postSignup
 Route::post('/login', ['before' => 'csrf', 'uses' => 'UserController@postLogin'] );
 Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout'] );
 
+
+Route::get('/mingle', 'MingleController@getIndex');
+Route::get('/mingle/display/{id}','MingleController@getDisplay');
 
 Route::get('/templates/add/', function() {
 	return View::make('addtemplate');
@@ -57,6 +52,8 @@ Route::post('/templates/add/', function() {
 	return "Added a new template";
 });
 
+
+
 Route::get('/pictures/add/', function() {
 	return View::make('addpicture');
 });
@@ -68,8 +65,13 @@ Route::post('/pictures/add/', function() {
 
 	$destinationPath = "../pictures/";
 
-	$user = User::all()->first();
-	$user_id = $user->user_id;
+	if(Auth::check()){
+		$user = Auth::user();
+	} else {
+		$user = User::all()->first();
+	};
+	
+	$user_id = $user->id;
 
 
 	$template = Input::get('template');
@@ -110,12 +112,8 @@ Route::post('/pictures/add/', function() {
 	$template = Template::where('template_id','=',$template_id)->get();
 
 
-	$mingle = new Mingle($template, $picture);
+	$mingle = Mingle::withTemplateAndPicture($template, $picture);
 
 	$mingle->do_mingle($filename);
 
-});
-
-Route::get('/ui/', function() {
-	return View::make('ui');
 });
