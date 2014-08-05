@@ -103,7 +103,11 @@ public function postAdd() {
 
 	$mingle = Mingle::withTemplateAndPicture($template, $picture);
 
-	$mingle->do_mingle($filename);	
+	$dest = $mingle->do_mingle($filename);	
+
+	return View::make('mingle_add')->with('image',$dest);
+
+
 }
 
 

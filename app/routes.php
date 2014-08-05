@@ -26,6 +26,12 @@ Route::get('/mingle', 'MingleController@getIndex');
 Route::get('/mingle/display/{id}','MingleController@getDisplay');
 Route::post('/mingles/add','MingleController@postAdd');
 
+Route::get('/frames', 'TemplateController@getIndex');
+Route::get('/frames/edit/{id}','TemplateController@getEdit');
+Route::post('/frames/edit','TemplateController@postEdit');
+Route::get('/frames/add','TemplateController@getCreate');
+Route::post('/frames/add','TemplateController@postCreate');
+
 
 Route::get('/templates/add/', function() {
 	return View::make('addtemplate');

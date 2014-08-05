@@ -9,4 +9,6 @@ Thumbs.db
 environment.php
 /pictures
 /mingles
+/public/templates
+/templates
 

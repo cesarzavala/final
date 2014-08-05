@@ -37,15 +37,19 @@
 		  		<a href="/"><span class="glyphicon glyphicon-home"></span></a>	- 		
 		  		<h4 class="rightie">
 		  			@if(Auth::check())
+		  				@if(Auth::user()->id==1)
+		  					{{link_to('frames','Manage frames')}} -
+		  				@endif
 	        			{{link_to('mingle','Saved pictures')}} - 
 						{{link_to('logout', 'Log Out')}}
 	      			@else
 	        			{{link_to('login', 'Log In')}} - 
 	        			{{link_to('signup', 'Sign Up to save your pictures')}}
 	      			@endif
-		  		</h4>		
+		  		</h4>	
 			</div>
 		</div>
+
 		<!-- Extra row for extra small devices only -->
 		<div class="row visible-xs-block">
 			<div class="col-sm-12">
@@ -54,6 +58,9 @@
 		        		<span class="label label-default">Logged in as <strong>{{{Auth::user()->email}}}</strong></span>
 		        		<div class="breather">
 							<a href="/"><span class="glyphicon glyphicon-home"></span></a> - 		  		
+			  				@if(Auth::user()->id==1)
+			  					{{link_to('frames','Manage frames')}} -
+			  				@endif
 		        			{{link_to('mingle','Saved pictures')}} - 
 							{{link_to('logout', 'Log Out')}}
 						</div>

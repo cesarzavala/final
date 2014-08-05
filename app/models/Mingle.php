@@ -85,16 +85,13 @@ class Mingle extends Eloquent {
 			$this->image = $this->path;
 
 			$this->save();
+
+			return $dest;
 			
-			header('Content-Type: image/png');
-			//imagepng($dest, $destinationPath.$filename);
-
-			imagepng($dest);
-			imagedestroy($dest);
-			imagedestroy($src);
-
-
-
+			// header('Content-Type: image/png');
+			// imagepng($dest);
+			//imagedestroy($dest);
+			//imagedestroy($src);
 	}
 
 
