@@ -24,6 +24,8 @@ Route::get('/logout', ['before' => 'auth', 'uses' => 'UserController@getLogout']
 
 Route::get('/mingle', 'MingleController@getIndex');
 Route::get('/mingle/display/{id}','MingleController@getDisplay');
+Route::post('/mingles/add','MingleController@postAdd');
+
 
 Route::get('/templates/add/', function() {
 	return View::make('addtemplate');

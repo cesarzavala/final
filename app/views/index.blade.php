@@ -15,7 +15,7 @@
 
 @section('content')
 
-	{{ Form::open(array('url' => '/pictures/add/', 'method' => 'POST', 'files' => true)) }}
+	{{ Form::open(array('url' => '/mingles/add/', 'method' => 'POST', 'files' => true)) }}
 
 	<div class="container-fluid">
 		<div class="row">

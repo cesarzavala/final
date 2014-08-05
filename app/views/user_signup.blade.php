@@ -5,23 +5,38 @@
 @stop
 
 @section('content')
-
-	<h1>Sign up</h1>
 	
 	@foreach($errors->all() as $message) 
-		<div class='error'>{{ $message }}</div>
+		<div class='flash-message'>{{ $message }}</div>
 	@endforeach
 	
-	{{ Form::open(array('url' => '/signup')) }}
+	{{ Form::open(array('url' => '/signup','role' => 'form-group')) }}
 				
-		Email<br>
-		{{ Form::text('email') }}<br><br>
-	
-		Password:<br>
-		{{ Form::password('password') }}<br>
-		<small>Min: 6</small><br><br>
-		
-		{{ Form::submit('Submit') }}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Sign Up</h3>
+				  </div>
+				  <div class="panel-body">
+					  <div class="form-group">
+					    <label for="email">Email</label>
+					    <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
+					  </div>
+					  <div class="form-group">
+					    <label for="password">Password</label>
+					    <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+					  </div>						
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row mybutton">
+			<button type="submit" class="btn btn-primary">Sign Up</button>
+		</div>
+	</div>
+
 	
 	{{ Form::close() }}
 

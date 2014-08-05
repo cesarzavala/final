@@ -1,3 +1,4 @@
+
 .logo {
 	background-color: black;
 	color: white;
@@ -34,6 +35,13 @@
 	color: silver;
 }
 
+.logo h2, .logo h4 {
+	margin-top: 0;
+}
+
+.logo h2 {
+	margin-bottom: 0;
+}
 
 .minglesset img {
 	width: 200px;
@@ -43,3 +51,41 @@
 	margin: 10px;
 }
 
+h2 {
+	margin-top: 10px;
+}
+
+h4 .rightie {
+	display: inline;
+}
+
+.rightie {
+	text-align: right;
+	display: inline;
+}
+
+.breather {
+	margin-top: 10px;
+	display: block;
+}
+
+.flash-message {
+	color: red;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.rightlogo {
+	display: inline;
+	text-align: right;
+}
+
+.rightlogo span {
+	display: inline;
+	text-align: right;
+}
+
+.rightlogo a {
+	display: inline;
+	text-align: right;
+}
