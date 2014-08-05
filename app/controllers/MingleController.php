@@ -5,8 +5,7 @@ class MingleController extends BaseController {
 		# Make sure BaseController construct gets called
 		parent::__construct();		
 		# Only logged in users should have access to this controller
-		$this->beforeFilter('auth');
-
+		//$this->beforeFilter('auth');
 	}
 
 public function getIndex() {
